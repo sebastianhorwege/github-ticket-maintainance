@@ -41,7 +41,7 @@ Anhand des Kontexts die passenden Aktionen auswählen:
 | Mention ohne Antwort | GitHub-Kommentar draften |
 | Blocker ohne Assignee | Assignee vorschlagen + Teams-Ping an Lead |
 | Stalled In-Progress | Teams-Ping an aktuellen Assignee |
-| Review-Request > 3 Tage | GitHub-Review-Kommentar draften ODER Teams-Ping an `msebhorw` |
+| Review-Request > 3 Tage | GitHub-Review-Kommentar draften ODER Teams-Ping an `sebastianhorwege` |
 | Triage-Rückstand (keine Prio) | Priorität + Assignee im Project 9 vorschlagen |
 | PR ohne Review (Team) | Teams-Ping an zuständigen Reviewer |
 
@@ -74,7 +74,7 @@ mcp_github_add_issue_comment   ← erst nach Bestätigung
 Bestimme die Zielperson:
 - Ticket-Autor → aus Issue `user.login` → Name aus Team-Mitglieder-Tabelle in `copilot-instructions.md` nachschlagen
 - Assignee → aus Issue `assignees[].login`
-- Kein Assignee + Blocker → an `msebhorw` (Leitung) oder passendes Team-Lead
+- Kein Assignee + Blocker → an `sebastianhorwege` (Leitung) oder passendes Team-Lead
 
 Teams-Deeplink via `communication-deeplinks` Skill:
 ```

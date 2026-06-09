@@ -28,16 +28,9 @@ Alle Sektionen sequenziell befüllen, dann Dashboard aktualisieren. Keine Rückf
 
 ### 1) Offene Blocker finden
 
-```bash
-gh search issues \
-  --owner=atacama-blooms-gmbh-co-kg \
-  --state=open \
-  --label=blocker \
-  --sort=updated \
-  --json number,title,repository,url,assignees,updatedAt
-```
+> ⚠️ Die Org `atacama-blooms-gmbh-co-kg` nutzt **kein** `label:blocker`. Blocker werden ausschließlich über das Priority-Feld in **Project 9** gesetzt.
 
-Zusätzlich via Project 9 nach Priorität `🌋 Blocker` suchen:
+**Primär – via Project 9 Priority `🌋 Blocker`:**
 ```
 mcp_gh-projects_projects_list
   method: list_project_items
@@ -56,16 +49,25 @@ Items mit `inaktiv > 7 Tage` zusätzlich in `🔥 Sofort handeln` aufnehmen.
 
 ### 2) Unassigned Issues finden
 
+> ⚠️ `--no-assignee` ist kein gültiges `gh` CLI-Flag. Korrekte Syntax via MCP oder gh CLI Query:
+
 ```bash
+# gh CLI – no:assignee im Query-String
 gh search issues \
-  --owner=atacama-blooms-gmbh-co-kg \
-  --state=open \
-  --no-assignee \
+  "no:assignee org:atacama-blooms-gmbh-co-kg is:open" \
   --sort=created \
   --json number,title,repository,url,createdAt,labels
 ```
 
-Sortierung: Älteste zuerst. Bots (renovate, dependabot) herausfiltern.
+Alternativ via MCP:
+```
+mcp_github_search_issues
+  query: "no:assignee is:open org:atacama-blooms-gmbh-co-kg -author:app/renovate -author:app/dependabot"
+  sort: created
+  per_page: 50
+```
+
+Sortierung: Älteste zuerst. Bots (renovate, dependabot) sind per Query ausgeschlossen.
 
 ---
 

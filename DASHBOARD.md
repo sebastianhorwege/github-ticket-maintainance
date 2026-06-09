@@ -3,7 +3,7 @@
 > **Copilot:** Lade `.github/copilot-instructions.md` und `skills/ticket-triage/SKILL.md` für vollständige Funktionalität.
 > Triage starten: _"Mach ein Triage"_ · Ticket bearbeiten: _"bearbeite #123"_ · Termin vorbereiten: _"Bereite Tickets für [Termin] am [Datum] vor"_
 
-> Zuletzt aktualisiert: 2026-06-09 22:00 Uhr
+> Zuletzt aktualisiert: 2026-06-09 22:30 Uhr
 > GitHub User: `sebastianhorwege` · Org: `atacama-blooms-gmbh-co-kg`
 
 ---
@@ -12,12 +12,13 @@
 
 > Tickets die dringend Aufmerksamkeit brauchen (Mentions ohne Antwort, überfällige Reviews, Blocker)
 
-| #     | Repo                      | Titel                                            | Grund                               | Link                                                                                  |
-| ----- | ------------------------- | ------------------------------------------------ | ----------------------------------- | ------------------------------------------------------------------------------------- |
-| #1    | atacama-blooms-adr        | feat: madr => adr (nygard); doku + templates     | Review **43 Tage** überfällig 🔴    | [#1](https://github.com/atacama-blooms-gmbh-co-kg/atacama-blooms-adr/pull/1)          |
+| #     | Repo                      | Titel                                            | Grund                               | Link |
+|-------|---------------------------|--------------------------------------------------|-------------------------------------|------|
+| #280  | k8s-config-avidoc-r       | Update gradio helm-release.yaml                  | Review **575 Tage** überfällig 🚨   | [#280](https://github.com/atacama-blooms-gmbh-co-kg/k8s-config-avidoc-r/pull/280) |
+| #59   | flower                    | Self Contained Execution Context                 | Assigned · **937 Tage** inaktiv 🚨  | [#59](https://github.com/atacama-blooms-gmbh-co-kg/flower/issues/59) |
+| #1005 | k8s-config-development    | Add PersistentVolumeClaim + update HelmRelease   | Review **114 Tage** überfällig 🔴   | [#1005](https://github.com/atacama-blooms-gmbh-co-kg/k8s-config-development/pull/1005) |
 | #56   | k8s-config-explore-blooms | Add threads configuration (production instances) | Review **21 Tage** überfällig 🔴    | [#56](https://github.com/atacama-blooms-gmbh-co-kg/k8s-config-explore-blooms/pull/56) |
-| #394  | atacama-blooms-docu       | docs(roadmap): update aus Refinement 19.05.2026  | Review **19 Tage** überfällig 🔴    | [#394](https://github.com/atacama-blooms-gmbh-co-kg/atacama-blooms-docu/pull/394)     |
-| #1630 | teamplanner               | Bereinigung FTP-Server v. alten Testdaten        | Unassigned · heute · Datenschutz ⚠️ | [#1630](https://github.com/atacama-blooms-gmbh-co-kg/teamplanner/issues/1630)         |
+| #1630 | teamplanner               | Bereinigung FTP-Server v. alten Testdaten        | Unassigned · heute · Datenschutz ⚠️ | [#1630](https://github.com/atacama-blooms-gmbh-co-kg/teamplanner/issues/1630) |
 
 ---
 
@@ -58,12 +59,11 @@ _Noch keine Termine eingetragen. Sag dem Agenten: "Bereite Tickets für [Termin]
 > PRs die Review von `sebastianhorwege` angefragt haben.
 > Aktualisiert via: `find-review-needed` Skill
 
-| PR    | Repo                      | Titel                                            | Autor             | Alter (Tage) | Link                                                                                  |
-| ----- | ------------------------- | ------------------------------------------------ | ----------------- | ------------ | ------------------------------------------------------------------------------------- |
-| #1    | atacama-blooms-adr        | feat: madr => adr (nygard); doku + templates     | @SebastianHalfter | 43 🔴        | [#1](https://github.com/atacama-blooms-gmbh-co-kg/atacama-blooms-adr/pull/1)          |
-| #56   | k8s-config-explore-blooms | Add threads configuration (production instances) | @mariem-baratli   | 21 🔴        | [#56](https://github.com/atacama-blooms-gmbh-co-kg/k8s-config-explore-blooms/pull/56) |
-| #394  | atacama-blooms-docu       | docs(roadmap): update aus Refinement 19.05.2026  | @Rohanrajan017    | 19 🔴        | [#394](https://github.com/atacama-blooms-gmbh-co-kg/atacama-blooms-docu/pull/394)     |
-| #1005 | k8s-config                | Add PersistentVolumeClaim + update HelmRelease   | —                 | —            | [#1005](https://github.com/atacama-blooms-gmbh-co-kg/k8s-config/pull/1005)            |
+| PR    | Repo                      | Titel                                            | Autor           | Alter (Tage) | Link |
+|-------|---------------------------|--------------------------------------------------|-----------------|--------------|------|
+| #280  | k8s-config-avidoc-r       | Update gradio helm-release.yaml                  | @Rohanrajan017  | 575 🚨        | [#280](https://github.com/atacama-blooms-gmbh-co-kg/k8s-config-avidoc-r/pull/280) |
+| #1005 | k8s-config-development    | Add PersistentVolumeClaim + update HelmRelease   | @jasper-ooster  | 114 🔴        | [#1005](https://github.com/atacama-blooms-gmbh-co-kg/k8s-config-development/pull/1005) |
+| #56   | k8s-config-explore-blooms | Add threads configuration (production instances) | @mariem-baratli | 21 🔴         | [#56](https://github.com/atacama-blooms-gmbh-co-kg/k8s-config-explore-blooms/pull/56) |
 
 ---
 
@@ -72,12 +72,12 @@ _Noch keine Termine eingetragen. Sag dem Agenten: "Bereite Tickets für [Termin]
 > Mir zugewiesene Issues/PRs ohne Aktivität seit > 14 Tagen.
 > Aktualisiert via: `find-stalled-tickets` Skill
 
-> ⚠️ 237 assigned Issues inaktiv seit > 14 Tagen. Top-Items:
+> ⚠️ 237 assigned Issues inaktiv seit > 14 Tagen. Älteste zuerst:
 
-| #     | Repo                | Titel                                           | Letzte Aktivität | Tage inaktiv | Link                                                                                |
-| ----- | ------------------- | ----------------------------------------------- | ---------------- | ------------ | ----------------------------------------------------------------------------------- |
-| #1448 | teamplanner         | rohan thesis master                             | 2026-05-21       | 19           | [#1448](https://github.com/atacama-blooms-gmbh-co-kg/teamplanner/issues/1448)       |
-| #380  | atacama-blooms-docu | GKVSuite Chat: Infra-Tasks (Prod/Dev-Migration) | 2026-05-06       | 34           | [#380](https://github.com/atacama-blooms-gmbh-co-kg/atacama-blooms-docu/issues/380) |
+| #     | Repo        | Titel                              | Letzte Aktivität | Tage inaktiv | Link |
+|-------|-------------|------------------------------------|------------------|--------------|------|
+| #59   | flower      | Self Contained Execution Context   | 2023-11-15       | 937 🚨        | [#59](https://github.com/atacama-blooms-gmbh-co-kg/flower/issues/59) |
+| #1448 | teamplanner | rohan thesis master                | 2026-05-21       | 19           | [#1448](https://github.com/atacama-blooms-gmbh-co-kg/teamplanner/issues/1448) |
 
 ---
 

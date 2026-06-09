@@ -1,17 +1,17 @@
 ---
 name: find-unresponded-mentions
-description: Findet Issues und PRs in der Org atacama-blooms-gmbh-co-kg wo msebhorw erwähnt wurde aber noch nicht geantwortet hat. Aktualisiert DASHBOARD.md Sektion "Mentions ohne Antwort". Use when: Mentions, geantwortet, erwähnt, @me, unanswered.
+description: Findet Issues und PRs in der Org atacama-blooms-gmbh-co-kg wo sebastianhorwege erwähnt wurde aber noch nicht geantwortet hat. Aktualisiert DASHBOARD.md Sektion "Mentions ohne Antwort". Use when: Mentions, geantwortet, erwähnt, @me, unanswered.
 ---
 
 # Find Unresponded Mentions
 
-Findet alle Issues/PRs in `atacama-blooms-gmbh-co-kg` wo `msebhorw` @mentioned wurde, aber **selbst noch keinen Kommentar** hinterlassen hat.
+Findet alle Issues/PRs in `atacama-blooms-gmbh-co-kg` wo `sebastianhorwege` @mentioned wurde, aber **selbst noch keinen Kommentar** hinterlassen hat.
 
 ## Quick start
 
 1. Mentions suchen
 2. Pro Treffer: letzten Kommentar-Autor prüfen
-3. Wenn kein Kommentar von `msebhorw` → in Liste aufnehmen
+3. Wenn kein Kommentar von `sebastianhorwege` → in Liste aufnehmen
 4. `DASHBOARD.md` Sektion `📥 Mentions ohne Antwort` aktualisieren
 
 ## Workflow
@@ -30,13 +30,13 @@ gh search issues \
 Alternativ via MCP:
 ```
 mcp_github_search_issues
-  query: "mentions:msebhorw is:open org:atacama-blooms-gmbh-co-kg"
+  query: "mentions:sebastianhorwege is:open org:atacama-blooms-gmbh-co-kg"
   per_page: 50
 ```
 
 ### Schritt 2 – Eigene Antwort prüfen
 
-Pro Issue/PR: Kommentare laden und prüfen ob `msebhorw` einer der Autoren ist.
+Pro Issue/PR: Kommentare laden und prüfen ob `sebastianhorwege` einer der Autoren ist.
 
 ```bash
 gh api repos/{owner}/{repo}/issues/{number}/comments \
@@ -50,11 +50,11 @@ mcp_github_issue_read
   repo: <repo-name>
   issue_number: <number>
 ```
-→ Prüfe `comments[].user.login` auf `msebhorw`
+→ Prüfe `comments[].user.login` auf `sebastianhorwege`
 
 ### Schritt 3 – Filtern
 
-Behalte nur Items wo **kein** Kommentar von `msebhorw` existiert.
+Behalte nur Items wo **kein** Kommentar von `sebastianhorwege` existiert.
 
 Priorisierung:
 - Älteste `updatedAt` zuerst (am längsten wartend)

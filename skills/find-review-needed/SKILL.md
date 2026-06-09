@@ -1,11 +1,11 @@
 ---
 name: find-review-needed
-description: Findet PRs in atacama-blooms-gmbh-co-kg die einen Review von msebhorw angefragt haben. Aktualisiert DASHBOARD.md Sektion "PRs warten auf meinen Review". Use when: Review, PR prüfen, review-requested, Code Review.
+description: Findet PRs in atacama-blooms-gmbh-co-kg die einen Review von sebastianhorwege angefragt haben. Aktualisiert DASHBOARD.md Sektion "PRs warten auf meinen Review". Use when: Review, PR prüfen, review-requested, Code Review.
 ---
 
 # Find Review Needed
 
-Findet alle offenen PRs in `atacama-blooms-gmbh-co-kg` bei denen ein Review von `msebhorw` angefragt wurde.
+Findet alle offenen PRs in `atacama-blooms-gmbh-co-kg` bei denen ein Review von `sebastianhorwege` angefragt wurde.
 
 ## Quick start
 
@@ -29,7 +29,7 @@ gh search prs \
 Via MCP:
 ```
 mcp_github_search_pull_requests
-  query: "review-requested:msebhorw is:pr is:open org:atacama-blooms-gmbh-co-kg"
+  query: "review-requested:sebastianhorwege is:pr is:open org:atacama-blooms-gmbh-co-kg"
   per_page: 50
 ```
 

@@ -1,11 +1,11 @@
 ---
 name: find-stalled-tickets
-description: Findet Tickets (Issues/PRs) in atacama-blooms-gmbh-co-kg die msebhorw assigned sind aber seit > 14 Tagen keine Aktivität haben. Aktualisiert DASHBOARD.md Sektion "Assigned – keine Aktivität". Use when: stalled, keine Aktivität, hängen, assigned, nicht vorankommen.
+description: Findet Tickets (Issues/PRs) in atacama-blooms-gmbh-co-kg die sebastianhorwege assigned sind aber seit > 14 Tagen keine Aktivität haben. Aktualisiert DASHBOARD.md Sektion "Assigned – keine Aktivität". Use when: stalled, keine Aktivität, hängen, assigned, nicht vorankommen.
 ---
 
 # Find Stalled Tickets
 
-Findet alle `msebhorw` zugewiesenen Issues und PRs in `atacama-blooms-gmbh-co-kg` ohne nennenswerte Aktivität.
+Findet alle `sebastianhorwege` zugewiesenen Issues und PRs in `atacama-blooms-gmbh-co-kg` ohne nennenswerte Aktivität.
 
 ## Quick start
 

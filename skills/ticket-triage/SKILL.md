@@ -1,6 +1,6 @@
 ---
 name: ticket-triage
-description: Vollständige Triage aller GitHub-Tickets für msebhorw in atacama-blooms-gmbh-co-kg. Führt alle Find-Skills aus und aktualisiert DASHBOARD.md komplett. Use when: Triage, Dashboard aktualisieren, alles auf einmal, was liegt an, Überblick.
+description: Vollständige Triage aller GitHub-Tickets für sebastianhorwege in atacama-blooms-gmbh-co-kg. Führt alle Find-Skills aus und aktualisiert DASHBOARD.md komplett. Use when: Triage, Dashboard aktualisieren, alles auf einmal, was liegt an, Überblick.
 ---
 
 # Ticket Triage
