@@ -10,17 +10,19 @@ Dieses Repo dient dem Monitoring und der Verwaltung von GitHub-Tickets in der Or
 
 - **GitHub User**: `sebastianhorwege`
 - **Organisation**: `atacama-blooms-gmbh-co-kg` (alle Repos)
-- **Dashboard-Datei**: `DASHBOARD.md` – wird vom Agenten aktualisiert
+- **Persönliches Dashboard**: `DASHBOARD.md` – Mentions, Reviews, Assigned, Watchlist, Termine
+- **Org-Übersicht**: `ORG.md` – Team-Übersicht, Zombie PRs, Org-weite Altlasten
 - **Tool-Präferenz**: GitHub MCP (`mcp_github_*`, `mcp_gh-projects_*`) + `gh` CLI
 
 ## Verhalten
 
-- Immer `DASHBOARD.md` aktualisieren wenn Ticket-Daten gesammelt wurden
-- Beim Update den Timestamp `> Zuletzt aktualisiert:` anpassen (Datum + Uhrzeit)
+- Persönliche Daten → `DASHBOARD.md` · Team/Org-Daten → `ORG.md`
+- Beim Update den Timestamp `> Zuletzt aktualisiert:` in der jeweiligen Datei anpassen (Datum + Uhrzeit)
 - Tabellen vollständig ersetzen, nicht nur Zeilen anhängen
-- Termine in `## 📅 Termine` als eigene `### 📆 ...` Unterabschnitte anlegen
+- Termine in `DASHBOARD.md ## 📅 Termine` als eigene `### 📆 ...` Unterabschnitte anlegen
 - Neue Termine nicht überschreiben, sondern darunter einfügen (nach Datum sortiert)
-- Bei manueller Watchlist (`## 📋 Watchlist`) niemals Einträge löschen
+- Bei manueller Watchlist (`## 📋 Watchlist` in `DASHBOARD.md`) niemals Einträge löschen
+- Zombie-PR-Daten (org-weit) → `ORG.md # 🧟 Zombie PRs`-Abschnitt
 
 ## Verfügbare Skills (in diesem Repo)
 
@@ -32,6 +34,7 @@ Lade diese Skills wenn der User entsprechende Aktionen anfragt:
 | find-stalled-tickets | `skills/find-stalled-tickets/SKILL.md` | "stalled", "keine Aktivität", "hängen", "assigned" |
 | find-review-needed | `skills/find-review-needed/SKILL.md` | "Review", "PR", "prüfen" |
 | find-team-issues | `skills/find-team-issues/SKILL.md` | "Team", "Blocker", "unassigned", "Auslastung", "Triage-Rückstand", "Team-Übersicht" |
+| find-org-stale | `skills/find-org-stale/SKILL.md` | "Zombie PRs", "stale PRs", "Altlasten", "alte PRs", "org-weit", "nicht aktualisiert" |
 | ticket-triage | `skills/ticket-triage/SKILL.md` | "Triage", "Dashboard aktualisieren", "alles" |
 | handle-ticket | `skills/handle-ticket/SKILL.md` | "bearbeite #X", "nächstes Item", "draft Antwort", "ping an", "zuweisen" |
 

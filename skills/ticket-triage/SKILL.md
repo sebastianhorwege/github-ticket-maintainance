@@ -1,11 +1,13 @@
 ---
 name: ticket-triage
-description: Vollständige Triage aller GitHub-Tickets für sebastianhorwege in atacama-blooms-gmbh-co-kg. Führt alle Find-Skills aus und aktualisiert DASHBOARD.md komplett. Use when: Triage, Dashboard aktualisieren, alles auf einmal, was liegt an, Überblick.
+description: Vollständige Triage aller GitHub-Tickets für sebastianhorwege in atacama-blooms-gmbh-co-kg. Führt alle Find-Skills aus und aktualisiert DASHBOARD.md (persönlich) + ORG.md (Team/Org) komplett. Use when: Triage, Dashboard aktualisieren, alles auf einmal, was liegt an, Überblick.
 ---
 
 # Ticket Triage
 
-Vollständiger Triage-Durchlauf: alle drei Find-Skills sequenziell ausführen und `DASHBOARD.md` komplett aktualisieren.
+Vollständiger Triage-Durchlauf: alle Find-Skills sequenziell ausführen und beide Dashboard-Dateien aktualisieren.
+- **Persönlich** → `DASHBOARD.md`
+- **Team / Org-weit** → `ORG.md`
 
 ## Quick start
 
@@ -25,15 +27,16 @@ Vollständiger Triage-Durchlauf: alle drei Find-Skills sequenziell ausführen un
 3. **Stalled Assigned Tickets** → `skills/find-stalled-tickets/SKILL.md`
 
 **Team:**
-4. **Team-Issues** → `skills/find-team-issues/SKILL.md` (Blocker, Unassigned, PRs ohne Review, Stalled Team, Triage-Rückstand, Auslastung)
+4. **Team-Issues** → `skills/find-team-issues/SKILL.md` (Blocker, Unassigned, PRs ohne Review, Stalled Team, Triage-Rückstand, Auslastung) → Ergebnis in `ORG.md`
+5. **Zombie PRs** → `skills/find-org-stale/SKILL.md` (org-weite stale PRs) → Ergebnis in `ORG.md # 🧟 Zombie PRs`
 
-5. **Dashboard zusammenführen** (dieser Skill)
+6. **Dashboards zusammenführen** (dieser Skill)
 
-## Dashboard zusammenführen
+## Dashboards zusammenführen
 
 Nach Abschluss aller Find-Skills:
 
-### Sofort handeln – befüllen
+### DASHBOARD.md – persönliche Sektionen aktualisieren
 
 Sammle aus allen Skills die dringenden Items und trage sie in `## 🔥 Sofort handeln` ein:
 
@@ -47,7 +50,7 @@ Sammle aus allen Skills die dringenden Items und trage sie in `## 🔥 Sofort ha
 | Unassigned Blocker | find-team-issues |
 | PR offen > 5 Tage ohne Review | find-team-issues |
 
-### Timestamp setzen
+### Timestamp setzen (DASHBOARD.md)
 
 Ersetze in `DASHBOARD.md`:
 ```
@@ -58,9 +61,25 @@ mit:
 > Zuletzt aktualisiert: YYYY-MM-DD HH:MM Uhr
 ```
 
-### Tabellen ersetzen (nicht anhängen)
+### ORG.md – Team-Sektionen aktualisieren
 
-Jede Tabelle vollständig ersetzen. Keine alten Zeilen behalten außer in `## 📋 Watchlist`.
+Ergebnisse aus `find-team-issues` in `ORG.md` eintragen:
+- `## 🚨 Offene Blocker`
+- `## 👤 Unassigned Issues`
+- `## 🔄 PRs ohne Review (Team)`
+- `## 🐌 Stalled In-Progress`
+- `## 🏷️ Triage-Rückstand`
+- `## 📊 Team-Auslastung`
+
+Ergebnisse aus `find-org-stale` in `ORG.md # 🧟 Zombie PRs – Org-weit` eintragen.
+
+### Timestamp setzen (ORG.md)
+
+Ersetze in `ORG.md`:
+```
+> Zuletzt aktualisiert: ...
+```
+mit aktuellem Datum + Uhrzeit.
 
 ## Termin-Vorbereitung (optional)
 
