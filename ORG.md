@@ -81,36 +81,48 @@
 > Aktualisiert via: `find-org-stale` Skill
 
 > Zuletzt aktualisiert: 2026-06-10
-> **~325 PRs** nicht aktualisiert seit > 90 Tagen · `ansible` archiviert am 2026-06-10 ✅
+> **~325 PRs** nicht aktualisiert seit > 90 Tagen · `ansible` archiviert 2026-06-10 ✅ (PRs frozen, nicht mehr actionable)
 
 ---
 
-## 📦 Betroffene Repos (Auswahl)
+## 📦 Betroffene Repos (Stand 2026-06-10)
 
-| Repo | Stale PRs (Auswahl) | Ältester PR | Hinweis |
-|------|---------------------|-------------|---------|
-| ~~`ansible`~~ | ~~14+~~ | ~~2093 Tage~~ | ✅ Archiviert am 2026-06-10 |
-| `kidohe` | 2 | 1904 Tage | Sehr alte WIP-PRs |
-| `avidoc-r-doctagger` | 2 | 1836 Tage | Vermutlich abandoniertes Repo |
-| `human-ocr` | 1 | 1605 Tage | |
-| `blooms-utils` | 1 | 1507 Tage | |
-| `avidoc-r` | 2+ | 1218 Tage | Alte Bugfixes |
-| `k8s-config-avidoc-r` | 1 | 575 Tage | Review requested (@sebastianhorwege) |
-| `k8s-config-development` | 1 | 114 Tage | Review requested (@sebastianhorwege) |
+> ~~Durchgestrichen~~ = archiviert · Sortiert nach Anzahl aktiver stale PRs
+
+| Repo | Stale PRs | Ältester PR | Hinweis |
+|------|-----------|-------------|---------|
+| ~~`ansible`~~ | ~~27~~ | ~~2084 Tage~~ | ✅ Archiviert – PRs frozen, kein Handlungsbedarf |
+| `avidoc-r` | 25 | 1217 Tage | ⚠️ Neuer Haupt-Problemrepo! |
+| `k8s-config-avidoc-r` | 5 | 623 Tage | Davon min. 1 Review-Request an @sebastianhorwege |
+| `avidoc-r-api` | 4 | 979 Tage | Vermutlich abandoniert |
+| `flower` | 3 | 1077 Tage | |
+| `avidoc-r_microtask-ui` | 3 | 754 Tage | |
+| `kidohe` | 2 | 1897 Tage | Sehr alte WIP-PRs |
+| `avidoc-r-doctagger` | 2 | 1835 Tage | |
+| `blooms-utils` | 2 | 1506 Tage | |
+| `gradle-codecoverage-template` | 2 | 869 Tage | |
+| `model-publishing-*` | 10 | 812 Tage | Diverse model-publishing Repos (je 1 PR) |
+| `human-ocr` | 1 | 1603 Tage | |
+| `helm-chart-pytorch` | 1 | 1119 Tage | |
 
 ---
 
-## 🏆 Älteste aktive PRs (Stand 2026-06-10, ansible ausgeschlossen)
+## 🏆 Top 15: Älteste aktive PRs (ansible ausgeschlossen)
 
 > 🟡 = Draft/WIP · 🔴 = Kein Review, nicht Draft
 
 | PR | Repo | Titel | Autor | Alter (Tage) | Draft | Link |
 |----|------|-------|-------|--------------|-------|------|
-| #29 | kidohe | [WIP] Secure REST endpoints | @openglfreak | 1904 | 🟡 | [#29](https://github.com/atacama-blooms-gmbh-co-kg/kidohe/pull/29) |
-| #1 | avidoc-r-doctagger | Java client library + misc. fixes | @openglfreak | 1836 | 🔴 | [#1](https://github.com/atacama-blooms-gmbh-co-kg/avidoc-r-doctagger/pull/1) |
-| #2 | avidoc-r-doctagger | Python client lib | @openglfreak | 1828 | 🔴 | [#2](https://github.com/atacama-blooms-gmbh-co-kg/avidoc-r-doctagger/pull/2) |
-| #52 | kidohe | fix: Anzeige Teilnehmer in Kalendarübersicht | @H-CLindner | 1646 | 🔴 | [#52](https://github.com/atacama-blooms-gmbh-co-kg/kidohe/pull/52) |
-| #5 | human-ocr | Make docker container build faster | @openglfreak | 1605 | 🔴 | [#5](https://github.com/atacama-blooms-gmbh-co-kg/human-ocr/pull/5) |
-| #18 | blooms-utils | fix: add documentbyId | @AuchterSimon | 1507 | 🔴 | [#18](https://github.com/atacama-blooms-gmbh-co-kg/blooms-utils/pull/18) |
-| #1074 | avidoc-r | fix: Nebenläufigkeitsproblem DAK | @AuchterSimon | 1218 | 🔴 | [#1074](https://github.com/atacama-blooms-gmbh-co-kg/avidoc-r/pull/1074) |
+| #29 | kidohe | [WIP] Secure REST endpoints | @openglfreak | 1897 | 🟡 | [#29](https://github.com/atacama-blooms-gmbh-co-kg/kidohe/pull/29) |
+| #1 | avidoc-r-doctagger | Java client library + misc. fixes | @openglfreak | 1835 | 🔴 | [#1](https://github.com/atacama-blooms-gmbh-co-kg/avidoc-r-doctagger/pull/1) |
+| #2 | avidoc-r-doctagger | Python client lib | @openglfreak | 1827 | 🔴 | [#2](https://github.com/atacama-blooms-gmbh-co-kg/avidoc-r-doctagger/pull/2) |
+| #52 | kidohe | fix: Anzeige Teilnehmer in Kalendarübersicht | @H-CLindner | 1645 | 🔴 | [#52](https://github.com/atacama-blooms-gmbh-co-kg/kidohe/pull/52) |
+| #5 | human-ocr | Make docker container build faster | @openglfreak | 1603 | 🔴 | [#5](https://github.com/atacama-blooms-gmbh-co-kg/human-ocr/pull/5) |
+| #18 | blooms-utils | fix: add documentbyId | @AuchterSimon | 1506 | 🔴 | [#18](https://github.com/atacama-blooms-gmbh-co-kg/blooms-utils/pull/18) |
+| #1074 | avidoc-r | fix: Nebenläufigkeitsproblem DAK | @AuchterSimon | 1217 | 🔴 | [#1074](https://github.com/atacama-blooms-gmbh-co-kg/avidoc-r/pull/1074) |
 | #1148 | avidoc-r | Bucket persist | @sebastianhorwege | 1155 | 🟡 | [#1148](https://github.com/atacama-blooms-gmbh-co-kg/avidoc-r/pull/1148) |
+| #? | helm-chart-pytorch | — | — | 1119 | — | [Repo](https://github.com/atacama-blooms-gmbh-co-kg/helm-chart-pytorch/pulls) |
+| #? | flower | — | — | 1077 | — | [Repo](https://github.com/atacama-blooms-gmbh-co-kg/flower/pulls) |
+| #? | avidoc-r-api | — | — | 979 | — | [Repo](https://github.com/atacama-blooms-gmbh-co-kg/avidoc-r-api/pulls) |
+| #? | gradle-codecoverage-template | — | — | 869 | — | [Repo](https://github.com/atacama-blooms-gmbh-co-kg/gradle-codecoverage-template/pulls) |
+| #? | avidoc-r_microtask-ui | — | — | 754 | — | [Repo](https://github.com/atacama-blooms-gmbh-co-kg/avidoc-r_microtask-ui/pulls) |
