@@ -56,7 +56,22 @@ mcp_github_issue_read
 
 Behalte nur Items wo **kein** Kommentar von `sebastianhorwege` existiert.
 
-Priorisierung:
+**Backlog-Items ausschließen:** Issues/PRs die im Project 9 mit Status `Backlog` stehen, werden ignoriert – sie sind bewusst zurückgestellt und erfordern keine sofortige Antwort.
+
+```
+mcp_gh-projects_projects_list
+  method: list_project_items
+  owner: atacama-blooms-gmbh-co-kg
+  owner_type: org
+  project_number: 9
+  query: status:"Backlog"
+  fields: ["31475950","31475955"]
+  per_page: 100
+```
+
+Alle Items deren Content-URL in dieser Backlog-Liste enthalten ist → aus dem Ergebnis entfernen.
+
+Priorisierung der verbleibenden Items:
 - Älteste `updatedAt` zuerst (am längsten wartend)
 - PRs vor Issues (blockieren oft andere)
 

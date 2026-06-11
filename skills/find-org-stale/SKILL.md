@@ -41,7 +41,7 @@ CUTOFF=$(date -d "90 days ago" +%Y-%m-%d)
 gh search prs \
   --owner=atacama-blooms-gmbh-co-kg \
   --state=open \
-  "updated:<$CUTOFF" \
+  "updated:<$CUTOFF archived:false" \
   --json number,repository,title,author,updatedAt,createdAt,isDraft \
   --limit 200
 
@@ -50,7 +50,7 @@ CUTOFF=$(date -d "180 days ago" +%Y-%m-%d)
 gh search prs \
   --owner=atacama-blooms-gmbh-co-kg \
   --state=open \
-  "updated:<$CUTOFF" \
+  "updated:<$CUTOFF archived:false" \
   --json number,repository,title,author,updatedAt,createdAt,isDraft \
   --limit 200
 
@@ -59,7 +59,7 @@ CUTOFF=$(date -d "365 days ago" +%Y-%m-%d)
 gh search prs \
   --owner=atacama-blooms-gmbh-co-kg \
   --state=open \
-  "updated:<$CUTOFF" \
+  "updated:<$CUTOFF archived:false" \
   --json number,repository,title,author,updatedAt,createdAt,isDraft \
   --limit 200
 ```
@@ -68,7 +68,7 @@ gh search prs \
 
 ```
 mcp_github_search_pull_requests:
-  query: "is:pr is:open org:atacama-blooms-gmbh-co-kg updated:<{CUTOFF}"
+  query: "is:pr is:open org:atacama-blooms-gmbh-co-kg updated:<{CUTOFF} archived:false"
   sort: "updated"
   order: "asc"
   per_page: 100
@@ -77,6 +77,30 @@ mcp_github_search_pull_requests:
 ---
 
 ## Workflow
+
+### Schritt 0: Archivierte Repos NIEMALS betrachten
+
+> ⚠️ **Wichtig:** Der GitHub-Search-Qualifier `archived:false` ist **unzuverlässig** (gecacht / greift nicht immer). Archivierte Repos MÜSSEN zusätzlich hart herausgefiltert werden.
+
+**Bekannte archivierte Repos (Stand 2026-06-11) – immer ausschließen:**
+`ansible`, `avidoc-r-doctagger`, `chat-with-blooms-docu`, `exploreblooms-backend`, `human-ocr`, `kidohe`, `loom-62-digital-backend`, `model-publishing-object-detection-fields-hkp-verord`, `nks_conversation_prototype`, `open-webui-blooms`
+
+> ⚠️ Diese Liste ist nicht abschließend – **immer** zusätzlich zur Laufzeit verifizieren (Search liefert auch archivierte Repos, die nicht in der Liste stehen, z.B. `kidohe` tauchte nur bei `--sort updated --order asc` auf).
+
+**Verifikation zur Laufzeit** – für jedes Repo das in den Suchergebnissen auftaucht den Archiv-Status prüfen und archivierte rauswerfen:
+
+```bash
+# Archiv-Status eines Repos pruefen (true = archiviert -> ausschliessen)
+gh api repos/atacama-blooms-gmbh-co-kg/<repo> -q '.archived'
+
+# Alle in den Ergebnissen vorkommenden Repos auf einmal pruefen:
+for r in $(cat /tmp/zombie_repos.txt | sort -u); do
+  a=$(gh api repos/atacama-blooms-gmbh-co-kg/$r -q '.archived' 2>/dev/null)
+  [ "$a" = "true" ] && echo "$r"  # diese Repos komplett ignorieren
+done
+```
+
+Archivierte Repos werden **nicht** in den Tabellen gelistet (auch nicht durchgestrichen) und zählen **nicht** in die PR-Gesamtzahlen.
 
 ### Schritt 1: Daten abrufen
 
@@ -89,13 +113,16 @@ Führe Zombie-Query (> 365 Tage) als Hauptquery aus. Kritisch- und Warnungs-Coun
 
 ### Schritt 2: Nach Repo gruppieren
 
-Erstelle `repo → [prs]` Map. Sortiere Repos nach Anzahl PRs (absteigend).
+Erstelle `repo → [prs]` Map. **Entferne zuerst alle archivierten Repos** (siehe Schritt 0 – Ausschlussliste + Laufzeit-Verifikation über ALLE vorkommenden Repos, nicht nur die bekannten). Sortiere die verbleibenden Repos nach Anzahl PRs (absteigend).
 
-**Bekannte Problemrepos (Stand 2026-06-10):**
-- `ansible` – 14+ alte PRs, viele vom User `openglfreak` und `sebastianhorwege` (Altlasten aus Infra-Zeiten)
-- `avidoc-r-doctagger` – 2 sehr alte PRs (1800+ Tage), Repo scheint inaktiv
-- `kidohe` – 2 alte WIP-PRs (beide 1600+ Tage)
-- `avidoc-r` – mehrere alte Bugfix-PRs
+> 💡 Tipp: Suche **zweimal** ausführen – einmal Default (best-match) und einmal `--sort updated --order asc` – und die Ergebnisse vereinen + nach `repo#number` deduplizieren. Sonst fehlen die ganz alten PRs (Search-Limit 300, default-Sortierung schneidet die ältesten ab).
+
+**Bekannte Problemrepos (aktiv, Stand 2026-06-11):**
+- `avidoc-r` – mehrere alte Bugfix-PRs (Haupt-Problemrepo)
+- `k8s-config-avidoc-r`, `avidoc-r-api`, `flower`, `blooms-utils` – diverse Altlasten
+
+**Archivierte Repos (immer herausfiltern, NIE listen):**
+`ansible`, `kidohe`, `avidoc-r-doctagger`, `human-ocr`
 
 ### Schritt 3: Top 20 Liste erstellen
 
@@ -130,7 +157,8 @@ Schreibe kurze Empfehlung für die ältesten nicht-Draft PRs:
 
 - `label:blocker` existiert **nicht** in der Org – nicht verwenden
 - `--no-assignee` ist kein valides `gh`-Flag – stattdessen `no:assignee` im Query-String
-- ansible-Repo hat viele DRAFT-PRs von `sebastianhorwege` aus alten Zeiten – wurden nie gemergt/geschlossen
+- **`archived:false` im Search-Query ist unzuverlässig** – archivierte Repos zusätzlich per `gh api repos/<org>/<repo> -q .archived` verifizieren und hart rausfiltern (siehe Schritt 0)
+- Archiviert (immer ignorieren): `ansible`, `kidohe`, `avidoc-r-doctagger`, `human-ocr`
 - `openglfreak` ist ein ehemaliger Mitarbeiter (Account nicht mehr aktiv) – dessen PRs sind Kandidaten zum Schließen
 - `H-CLindner` ist ebenfalls nicht mehr aktiv
 - PR-Counts variieren da GitHub-Search gecacht ist (± 10-20 PRs je nach Zeitpunkt)

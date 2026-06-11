@@ -54,6 +54,26 @@ inaktiv_seit = heute - updatedAt
 behalte wenn inaktiv_seit > 14 Tage
 ```
 
+### Schritt 3b – Backlog-Items herausfiltern
+
+Items die im **Project 9** den Status `Backlog` haben, werden **nicht** als stalled gewertet – sie sind bewusst zurückgestellt.
+
+Backlog-Items via Project Board laden und URL-Liste aufbauen:
+```
+mcp_gh-projects_projects_list
+  method: list_project_items
+  owner: atacama-blooms-gmbh-co-kg
+  owner_type: org
+  project_number: 9
+  query: status:"Backlog"
+  fields: ["31475950","31475949","31475955"]
+  per_page: 100
+```
+
+Alle Items deren Content-URL in dieser Backlog-Liste enthalten ist → aus dem Ergebnis entfernen.
+
+> Wenn mehrere Status-Varianten existieren (z. B. `📦 Backlog`, `Backlog`, `🔙 Backlog`), alle laden.
+
 ### Schritt 4 – Anreicherung
 
 Pro Item: kurz prüfen ob es im GitHub Project Board ist:
